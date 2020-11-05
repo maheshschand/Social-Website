@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ["suven-social.herokuapp.com", "localhost", "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
-    "whitenoise.runserver_nostatic",
+    # "whitenoise.runserver_nostatic",
     "account.apps.AccountConfig",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -84,18 +84,18 @@ WSGI_APPLICATION = "bookmarks.wsgi.application"
 
 DATABASES = {
     "default": {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "<database_name>",
-        "USER": "<user_name>",
-        "PASSWORD": "<password>",
-        "HOST": "localhost",
-        "PORT": "",
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # "ENGINE": "django.db.backends.postgresql_psycopg2",
+        # "NAME": "<database_name>",
+        # "USER": "<user_name>",
+        # "PASSWORD": "<password>",
+        # "HOST": "localhost",
+        # "PORT": "",
     }
 }
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES["default"].update(db_from_env)
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES["default"].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -138,7 +138,7 @@ STATIC_URL = "/static/"
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
@@ -178,8 +178,8 @@ ABSOLUTE_URL_OVERRIDES = {
 }
 
 
-# REDIS_HOST = 'localhost'
-# REDIS_PORT = 6379
-# REDIS_DB = 0
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0
 
-WHITENOISE_USE_FINDERS = True
+# WHITENOISE_USE_FINDERS = True
